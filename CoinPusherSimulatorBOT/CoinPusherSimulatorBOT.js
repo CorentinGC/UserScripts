@@ -1,32 +1,38 @@
 // ==UserScript==
 // @name         CoinPusherBot
 // @namespace    https://corentingc.fr
-// @version      0.1d
+// @version      0.2
 // @description  Play to CoinPusherSimulator
 // @author       CorentinGC
 // @match        https://www.twitch.tv/coinpushersimulator
 // @grant        nonegit remote add origin git@github.com:CorentinGC/userscripts.git
+
 // @updateURL    https://raw.githubusercontent.com/CorentinGC/UserScripts/main/CoinPusherSimulatorBOT/CoinPusherSimulatorBOT.js
 // @downloadURL  https://raw.githubusercontent.com/CorentinGC/UserScripts/main/CoinPusherSimulatorBOT/CoinPusherSimulatorBOT.js
 // ==/UserScript==
 
+const VERSION = '0.1d'
+const DEFAULT_TIMER = 10
+const KEY_BOT_TIMER = 'bot_timer'
+
 const CHAT_INPUT = 'textarea[data-a-target=chat-input]'
 const CHAT_BTN = 'button[data-a-target=chat-send-button]'
 const BONUS_CHEST = 'span[data-a-target=tw-core-button-label-text]'
+
 
 class TwitchBot{
     constructor(){
         this.UI_style()
         this.UI_events()
         this.UI()
+        
     }
-
-    version = 0.1
-    timer = 10
     started = false
     bet = 100
     nextTime = new Date().toLocaleTimeString()
     timeout
+    timer = localStorage.getItem(KEY_BOT_TIMER) || DEFAULT_TIMER
+
 
     start(){
         if(this.started) return
@@ -68,12 +74,9 @@ class TwitchBot{
     }
     changeTimer(min){
         this.timer = min
+        localStorage.setItem(KEY_BOT_TIMER, min)
+
         this.log('Timer changed to '+min+' minutes')
-        // clearTimeout(this.timeout)
-
-        if(!this.started) return
-
-        // this.loop()
     }
     log(msg){
         const date = new Date().toLocaleTimeString()
@@ -158,7 +161,7 @@ class TwitchBot{
         let container = document.createElement("div")
         container.id = 'twitchbot'
 
-        let content = document.createTextNode('TwitchBot v'+this.version)
+        let content = document.createTextNode('TwitchBot v'+VERSION)
         container.appendChild(content)
 
         let startBtn = document.createElement("button")
