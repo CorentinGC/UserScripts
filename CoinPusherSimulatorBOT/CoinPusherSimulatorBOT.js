@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CoinPusherBot
 // @namespace    https://corentingc.fr
-// @version      0.1
+// @version      0.1a
 // @description  Play to CoinPusherSimulator
 // @author       CorentinGC
 // @match        https://www.twitch.tv/coinpushersimulator
@@ -172,10 +172,10 @@ class TwitchBot{
         timer.value = this.timer
         container.appendChild(timer)
 
-        let stopBtn = document.createElement("button")
-        stopBtn.id = 'change-timer-bot'
-        stopBtn.innerHTML  = 'Modify'
-        container.appendChild(stopBtn)
+        let timerBtn = document.createElement("button")
+        timerBtn.id = 'change-timer-bot'
+        timerBtn.innerHTML  = 'Modify'
+        container.appendChild(timerBtn)
 
         document.body.append(container)
     }
