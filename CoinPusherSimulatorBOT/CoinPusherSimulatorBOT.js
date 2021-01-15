@@ -6,6 +6,8 @@
 // @author       CorentinGC
 // @match        https://www.twitch.tv/coinpushersimulator
 // @grant        nonegit remote add origin git@github.com:CorentinGC/userscripts.git
+// @updateURL   https://raw.githubusercontent.com/CorentinGC/UserScripts/main/CoinPusherSimulatorBOT/CoinPusherSimulatorBOT.js
+// @downloadURL https://raw.githubusercontent.com/CorentinGC/UserScripts/main/CoinPusherSimulatorBOT/CoinPusherSimulatorBOT.js
 // ==/UserScript==
 
 const CHAT_INPUT = 'textarea[data-a-target=chat-input]'
