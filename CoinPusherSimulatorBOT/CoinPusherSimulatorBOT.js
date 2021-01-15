@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CoinPusherBot
 // @namespace    https://corentingc.fr
-// @version      0.2a
+// @version      0.3
 // @description  Play to CoinPusherSimulator
 // @author       CorentinGC
 // @match        https://www.twitch.tv/coinpushersimulator
@@ -11,7 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/CorentinGC/UserScripts/main/CoinPusherSimulatorBOT/CoinPusherSimulatorBOT.js
 // ==/UserScript==
 
-const VERSION = '0.2a'
+const VERSION = '0.3'
 const DEFAULT_TIMER = 10
 const KEY_BOT_TIMER = 'bot_timer'
 
