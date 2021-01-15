@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CoinPusherBot
 // @namespace    https://corentingc.fr
-// @version      0.1c
+// @version      0.1d
 // @description  Play to CoinPusherSimulator
 // @author       CorentinGC
 // @match        https://www.twitch.tv/coinpushersimulator
@@ -130,6 +130,10 @@ class TwitchBot{
                 background-color: #dc3545;
                 border-color: #dc3545;
             }
+            #timer-bot {
+                width: 50px;
+                border-radius: .25em;
+            }
 
         `
 
@@ -172,6 +176,8 @@ class TwitchBot{
         nextBet.innerHTML = 'Bot stopped'
         container.appendChild(nextBet)
 
+        let separator = document.createTextNode(' | ')
+        container.appendChild(separator)
 
         let timer = document.createElement('input')
         timer.id = 'timer-bot'
