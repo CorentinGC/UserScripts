@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CoinPusherBot
 // @namespace    https://corentingc.fr
-// @version      0.4
+// @version      0.5
 // @description  Play to CoinPusherSimulator
 // @author       CorentinGC
 // @match        https://www.twitch.tv/coinpushersimulator
@@ -11,7 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/CorentinGC/UserScripts/main/CoinPusherSimulatorBOT/CoinPusherSimulatorBOT.js
 // ==/UserScript==
 
-const VERSION = '0.4'
+const VERSION = '0.5'
 const DEFAULT_TIMER = 10
 const KEY_BOT_TIMER = 'bot_timer'
 
@@ -20,7 +20,7 @@ const CHAT_BTN = 'button[data-a-target=chat-send-button]'
 const BONUS_CHEST = 'span[data-a-target=tw-core-button-label-text]'
 
 
-class TwitchBot{
+class CoinPusher{
     constructor(){
         this.UI_style()
         this.UI_events()
@@ -31,7 +31,7 @@ class TwitchBot{
     bet = 100
     nextTime = new Date().toLocaleTimeString()
     timeout
-    timer = localStorage.getItem(KEY_BOT_TIMER) || DEFAULT_TIMER
+    timer = parseFloat(localStorage.getItem(KEY_BOT_TIMER)) || DEFAULT_TIMER
 
 
     start(){
@@ -73,7 +73,7 @@ class TwitchBot{
         this.clickBtn()
     }
     changeTimer(min){
-        this.timer = min
+        this.timer = parseFloat(min)
         localStorage.setItem(KEY_BOT_TIMER, min)
 
         this.log('Timer changed to '+min+' minutes')
@@ -85,7 +85,7 @@ class TwitchBot{
     }
     log(msg){
         const date = new Date().toLocaleTimeString()
-        const prefix = '['+date+'][TwitchBot] -> '
+        const prefix = '['+date+'][CoinPusher] -> '
         return console.log(prefix+msg)
     }
     UI_style(){
@@ -166,7 +166,7 @@ class TwitchBot{
         let container = document.createElement("div")
         container.id = 'twitchbot'
 
-        let content = document.createTextNode('TwitchBot v'+VERSION)
+        let content = document.createTextNode('CoinPusher v'+VERSION)
         container.appendChild(content)
 
         let startBtn = document.createElement("button")
@@ -205,8 +205,9 @@ class TwitchBot{
     }
     randTimer(){
         let entropy =  this.getRandomInt(10,100) / 10
-        let timer = (this.timer + entropy) * 60 * 1000
+        let timer = Math.round( (this.timer + entropy) * 60 * 1000)
 
+        console.log(this.timer, entropy, this.timer+entropy)
         return timer
     }
     loop(){
@@ -225,4 +226,5 @@ class TwitchBot{
         }, timer)
     }
 }
-window.TwitchBot = new TwitchBot()
+
+Bot = new CoinPusher()
