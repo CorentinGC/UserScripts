@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CoinPusherBot
 // @namespace    https://corentingc.fr
-// @version      0.1b
+// @version      0.1c
 // @description  Play to CoinPusherSimulator
 // @author       CorentinGC
 // @match        https://www.twitch.tv/coinpushersimulator
@@ -69,11 +69,11 @@ class TwitchBot{
     changeTimer(min){
         this.timer = min
         this.log('Timer changed to '+min+' minutes')
-        clearTimeout(this.timeout)
+        // clearTimeout(this.timeout)
 
         if(!this.started) return
 
-        this.loop()
+        // this.loop()
     }
     log(msg){
         const date = new Date().toLocaleTimeString()
@@ -143,6 +143,10 @@ class TwitchBot{
 
                 case 'stop-bot':
                     return this.stop()
+
+                case 'change-timer-bot':
+                    let newTimer = document.querySelector('#timer-bot').value
+                    return this.changeTimer(newTimer)
             }
         })
     }
