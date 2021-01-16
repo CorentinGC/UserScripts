@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         TwitchAutoClick
+// @name         TwitchChestClicker
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  AutoClick bonus chests on twitch pages
