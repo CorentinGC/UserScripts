@@ -6,6 +6,8 @@
 // @author       CorentinGC
 // @match        https://www.twitch.tv/*
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/CorentinGC/UserScripts/main/TwitchChestClicker/TwitchChestClicker.js
+// @downloadURL  https://raw.githubusercontent.com/CorentinGC/UserScripts/main/TwitchChestClicker/TwitchChestClicker.js
 // ==/UserScript==
 
 const DATA_KEY = 'bot_data';
