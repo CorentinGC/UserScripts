@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TwitchChestClicker
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  AutoClick bonus chests on twitch pages
 // @author       CorentinGC
 // @match        https://www.twitch.tv/*
@@ -127,7 +127,7 @@ class TwitchClicker {
         ui.style.minWidth = '140px';
         ui.style.padding = '0 5px'
         ui.style.height = '50px';
-        ui.style.zIndex = '999';
+        ui.style.zIndex = '99999';
         ui.style.borderTopRightRadius = '.25em';
         ui.style.borderTop = '1px solid black';
         ui.style.borderRight = '1px solid black';
