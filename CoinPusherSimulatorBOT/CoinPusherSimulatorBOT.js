@@ -204,7 +204,7 @@ class CoinPusher{
         nextBet.innerHTML = !nextTime ?  'Bot stopped' : 'Next bet: '+nextTime
     }
     randTimer(){
-        let entropy =  this.getRandomInt(10,30) / 10
+        let entropy =  this.getRandomInt(1,30) / 10
         let timer = Math.round( (this.timer + entropy) * 60 * 1000)
 
         console.log(this.timer, entropy, this.timer+entropy)
