@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CoinPusherBot
 // @namespace    https://corentingc.fr
-// @version      0.6
+// @version      0.7
 // @description  Play to CoinPusherSimulator
 // @author       CorentinGC
 // @match        https://www.twitch.tv/coinpushersimulator
@@ -11,7 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/CorentinGC/UserScripts/main/CoinPusherSimulatorBOT/CoinPusherSimulatorBOT.js
 // ==/UserScript==
 
-const VERSION = '0.6'
+const VERSION = '0.7'
 const DEFAULT_TIMER = 10
 const KEY_BOT_TIMER = 'bot_timer'
 
@@ -204,7 +204,7 @@ class CoinPusher{
         nextBet.innerHTML = !nextTime ?  'Bot stopped' : 'Next bet: '+nextTime
     }
     randTimer(){
-        let entropy =  this.getRandomInt(10,100) / 10
+        let entropy =  this.getRandomInt(10,30) / 10
         let timer = Math.round( (this.timer + entropy) * 60 * 1000)
 
         console.log(this.timer, entropy, this.timer+entropy)
